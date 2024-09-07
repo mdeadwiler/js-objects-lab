@@ -73,3 +73,109 @@ Exercise 6
 Solve Exercise 6 here:
 */
 
+function updateGymCompletion(gyms) {
+  gyms.forEach(gyms => {
+      if (gyms.difficulty < 3) {
+          gyms.completed = true;
+      }
+  });
+  return gyms;
+}
+
+// This will update gyms array
+const updatedGyms = updateGymCompletion.gyms;
+
+// invoke to update gyms
+console.log(updatedGyms);
+
+/*
+Exercise 7
+1. Evolve the starter Pokémon you added to your party earlier. Each starter Pokémon evolves into a specific one.
+2. How would you replace the current starter Pokémon in your party with its evolved form?
+
+Hint: 
+  - Pokemon 1: Bulbasaur evolves into Pokemon 2: Ivysaur
+  - Pokemon 4: Charmander evolves into Pokemon 5: Charmeleon
+  - Pokemon 7: Squirtle evolves into Pokemon 8: Wartortle
+  - Pokemon 25: Pikachu evolves into Pokemon 26: Raichu
+
+More Hints: The existing starter Pokemon will be *replaced* in your party with the Pokemon it evolved into. When working with an array of objects, the splice() array method is ideal for replacing one element with another. 
+
+
+Solve Exercise 7 here:
+*/
+let party = [
+  { name: "Bulbasaur", number: 1 },
+  { name: "Charmander", number: 4 },
+  { name: "Squirtle", number: 7 },
+  { name: "Pikachu", number: 25 }
+];
+
+// evolution defines the evolve of each of the pokemon I have selected
+const evolution = {
+  1: { name: "Ivysaur", number: 2 },
+  4: { name: "Charmeleon", number: 5 },
+  7: { name: "Wartortle", number: 8 },
+  25: { name: "Raichu", number: 26 }
+};
+
+function evolvePokemon(party) {
+  for (let i = 0; i < party.length; i++) {
+      const pokemon = party[i];
+      if (evolution[pokemon.number]) {
+          // Replace the current Pokémon with its evolved form
+          party.splice(i, 1, evolution[pokemon.number]);
+      }
+  }
+  return party;
+}
+
+// Evolve the starter Pokémon in the party
+const evolvedParty = evolvePokemon(party);
+
+// Log the evolved party to see the results
+console.log("Evolved Party:", evolvedParty);
+
+/*
+Exercise 8
+1. Print the name of each Pokémon in your party.
+2. Consider using a loop or an array method to access each Pokémon's name.
+
+Solve Exercise 8 here:
+*/
+
+
+
+function pokemonNames(party) {
+  console.log("Pokémon party:");
+  party.forEach((pokemon, i) => {
+      console.log(`${i + 1}. ${pokemon.name}`);
+  });
+}
+
+// Call the function to print the Pokémon names
+pokemonNames(party);
+
+/*
+Exercise 9
+1. Can you print out all the starter Pokémon from the `pokemon` array?
+2. Think about how you can identify a starter Pokémon and then log their names.
+
+
+Solve Exercise 9 here:
+*/
+
+
+function printStarterPokemon(pokemonArray) {
+  const starterNumbers = [1, 4, 7, 25]; // Bulbasaur, Charmander, Squirtle, Pikachu
+
+  console.log("Starter Pokémon:");
+  pokemonArray.forEach(pokemon => {
+      if (starterNumbers.includes(pokemon.number)) {
+          console.log(`${pokemon.number}: ${pokemon.name}`);
+      }
+  });
+}
+
+// Call the function to print the starter Pokémon
+printStarterPokemon(pokemon);
