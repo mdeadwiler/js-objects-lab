@@ -72,21 +72,12 @@ Exercise 6
 
 Solve Exercise 6 here:
 */
-
-function updateGymCompletion(gyms) {
-  gyms.forEach(gyms => {
-      if (gyms.difficulty < 3) {
-          gyms.completed = true;
-      }
-  });
-  return gyms;
-}
-
-// This will update gyms array
-const updatedGyms = updateGymCompletion.gyms;
-
-// invoke to update gyms
-console.log(updatedGyms);
+game.gyms.forEach((gym) => {
+  if (gym.difficulty < 3) {
+      gym.completed = true;
+  }
+  console.log(gym);
+  })
 
 /*
 Exercise 7
@@ -102,39 +93,10 @@ Hint:
 More Hints: The existing starter Pokemon will be *replaced* in your party with the Pokemon it evolved into. When working with an array of objects, the splice() array method is ideal for replacing one element with another. 
 
 
-Solve Exercise 7 here:
-*/
-let party = [
-  { name: "Bulbasaur", number: 1 },
-  { name: "Charmander", number: 4 },
-  { name: "Squirtle", number: 7 },
-  { name: "Pikachu", number: 25 }
-];
+Solve Exercise 7 here:*/
 
-// evolution defines the evolve of each of the pokemon I have selected
-const evolution = {
-  1: { name: "Ivysaur", number: 2 },
-  4: { name: "Charmeleon", number: 5 },
-  7: { name: "Wartortle", number: 8 },
-  25: { name: "Raichu", number: 26 }
-};
 
-function evolvePokemon(party) {
-  for (let i = 0; i < party.length; i++) {
-      const pokemon = party[i];
-      if (evolution[pokemon.number]) {
-          // Replace the current Pokémon with its evolved form
-          party.splice(i, 1, evolution[pokemon.number]);
-      }
-  }
-  return party;
-}
 
-// Evolve the starter Pokémon in the party
-const evolvedParty = evolvePokemon(party);
-
-// Log the evolved party to see the results
-console.log("Evolved Party:", evolvedParty);
 
 /*
 Exercise 8
@@ -146,16 +108,6 @@ Solve Exercise 8 here:
 
 
 
-function pokemonNames(party) {
-  console.log("Pokémon party:");
-  party.forEach((pokemon, i) => {
-      console.log(`${i + 1}. ${pokemon.name}`);
-  });
-}
-
-// Call the function to print the Pokémon names
-pokemonNames(party);
-
 /*
 Exercise 9
 1. Can you print out all the starter Pokémon from the `pokemon` array?
@@ -166,16 +118,47 @@ Solve Exercise 9 here:
 */
 
 
-function printStarterPokemon(pokemonArray) {
-  const starterNumbers = [1, 4, 7, 25]; // Bulbasaur, Charmander, Squirtle, Pikachu
 
-  console.log("Starter Pokémon:");
-  pokemonArray.forEach(pokemon => {
-      if (starterNumbers.includes(pokemon.number)) {
-          console.log(`${pokemon.number}: ${pokemon.name}`);
-      }
-  });
-}
 
-// Call the function to print the starter Pokémon
-printStarterPokemon(pokemon);
+/*
+Exercise 10
+Create a method called `catchPokemon` and add it to the `game` object. You should not need to edit the original game object directly. This method should:
+  - Accept an object as a parameter called `pokemonObj`
+  - Add the `pokemonObj` to the `game.party` array.
+  - not return anything
+
+After writing this method, call it and pass in a Pokemon object of your choice from the `pokemon` data to catch it.
+
+Solve Exercise 10 here:
+*/
+
+
+/*
+Exercise 11
+1. Copy the `catchPokemon` method that you just wrote above, and paste it below. Modify it so that it also decreases the number of pokeballs in your inventory each time you catch a Pokémon.
+2. How will you find and update the quantity of pokeballs in the `game.items` array?
+
+Tips:
+For this exercise, it's okay to have a negative number of pokeballs.
+After updating the method, call it and pass in a Pokemon object of your choice from the `pokemon` data to catch it.
+Also, log the `game.items` array to confirm that the pokeball quantity is being decremented.
+
+Solve Exercise 11 here:
+
+
+
+
+
+/*
+Exercise 12
+1. Similar to Exercise 6, now complete gyms with a difficulty below 6. How will you approach this?
+ (change the value of `complete` in the qualifying objects from false to true).
+
+Solve Exercise 12 here:
+*/
+ game.gyms.forEach((gym) => {
+  if (gym.difficulty < 6) {
+    gym.completed = true;
+  }
+  console.log(gym)
+ })
