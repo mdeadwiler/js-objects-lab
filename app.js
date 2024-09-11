@@ -150,7 +150,7 @@ for (let i = 0; i < pokemon.length; i++) {
     break;
   }
 }
-game.catchPokemon(mewCatch);
+game.catchPokemon(mewCatch);// Mew is undefined for some reason
 
 console.log("Updated party catching Mew:");
 for (let i = 0; i < game.party.length; i++) {
